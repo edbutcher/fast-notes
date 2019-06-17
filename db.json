@@ -1,0 +1,9 @@
+{
+  "notes": [
+    { "id": 1, "title": "json-server", "text": "Randome text", "isDone": false, "isArchive": false },
+    { "id": 2, "title": "test", "text": "Randome text", "isDone": false, "isArchive": false },
+    { "id": 3, "title": "another note", "text": "Randome text", "isDone": true, "isArchive": false },
+    { "id": 4, "title": "test 2", "text": "Randome text", "isDone": false, "isArchive": true },
+    { "id": 5, "title": "test 3", "text": "Randome text", "isDone": true, "isArchive": true }
+  ]
+}
