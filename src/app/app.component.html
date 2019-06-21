@@ -1,5 +1,13 @@
-<nav>
-  <a routerLink="/" routerLinkActive="active">Home</a>
-  <a routerLink="/archive" routerLinkActive="active">Archive</a>
-</nav>
-<router-outlet></router-outlet>
+<header class="header">
+  <h1 class="header-title">Fast Notes</h1> 
+</header>
+
+<main class="main">
+  <div class="nav-wrapper">
+      <nav class="nav">
+        <a class="nav-item" routerLink="/notes" routerLinkActive="active">Notes</a>
+        <a class="nav-item" routerLink="/archive" routerLinkActive="active">Archive</a>
+      </nav>
+  </div>
+  <router-outlet></router-outlet>
+</main>

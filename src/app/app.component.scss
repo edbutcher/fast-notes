@@ -1,0 +1,45 @@
+.header {
+  position: sticky;
+  margin: 0;
+  box-sizing: border-box;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+  padding: 16px 32px;
+
+  &-title {
+    margin: 0;
+  }
+}
+
+.main {
+  display: flex;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 16px 16px 16px 0;
+  width: 200px;
+
+  &-item {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 0 25px 25px 0;
+    color: #888888;
+    text-decoration: none;
+    
+    &:hover {
+      transition: box-shadow ease-in-out;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+      background: #f1f3f4;
+      color: black;
+    }
+    &.active {
+      color: black;
+      background: #feefc3;
+    }
+  }
+}

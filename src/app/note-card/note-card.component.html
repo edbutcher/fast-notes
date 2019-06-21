@@ -1,0 +1,27 @@
+<li class="note-card" *ngIf="note">
+  <a class="note-content" routerLink="/notes/{{note.id}}">
+    <h1 class="note-title">{{note.title}}</h1>
+    <p class="note-text">{{note.text}}</p>
+  </a>
+  <div class="note-buttons">
+    <div class="note-buttons--delete">
+      <button mat-mini-fab color="warn">
+        <i class="material-icons note-icon">delete</i>
+      </button>
+    </div>
+    <div class="note-buttons--group">
+      <button mat-mini-fab *ngIf="!note.isArchive">
+        <i class="material-icons note-icon">archive</i>
+      </button>
+      <button mat-mini-fab *ngIf="note.isArchive">
+        <i class="material-icons note-icon">unarchive</i>
+      </button>
+      <button mat-mini-fab color="primary" *ngIf="!note.isDone">
+        <i class="material-icons note-icon" alt="Mark as done" aria-label="Mark as done">check_box</i>
+      </button>
+      <button mat-mini-fab color="primary" *ngIf="note.isDone">
+        <i class="material-icons note-icon" alt="Mark as undone" aria-label="Mark as undone">check_box_outline_blank</i>
+      </button>
+    </div>
+  </div>
+</li>

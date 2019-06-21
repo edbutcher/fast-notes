@@ -1,18 +1,14 @@
-<p>
-  notes works!
-</p>
-<div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Input">
-  </mat-form-field>
+<div class="content-wrapper">
 
-  <mat-form-field>
-    <textarea matInput placeholder="Textarea"></textarea>
-  </mat-form-field>
+  <h2 class="notes-title">Need to complete:</h2>
 
-  <mat-form-field>
-    <mat-select placeholder="Select">
-      <mat-option value="option">Option</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <ul class="notes-wrapper">
+    <app-note-card *ngFor="let note of notes" [note]="note"></app-note-card>
+  </ul>
+
+  <h2 class="notes-title">Completed:</h2>
+
+  <div class="notes-wrapper"></div>
+
 </div>
+

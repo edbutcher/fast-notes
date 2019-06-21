@@ -1,0 +1,19 @@
+.notes{
+  &-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 16px 0 0;
+    margin: 0;
+  }
+
+  &-title {
+    margin: 0;
+    padding-top: 16px;
+  }
+}
+
+.content-wrapper {
+  padding: 0 16px;
+}
