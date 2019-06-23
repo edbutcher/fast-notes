@@ -1,5 +1,6 @@
 <div class="note-wrapper">
   <div class="note-container">
+    <button mat-button class="close">X</button>
 
     <mat-form-field>
       <textarea matInput placeholder="Title"></textarea>
@@ -9,5 +10,26 @@
       <textarea matInput placeholder="Text" rows="10"></textarea>
     </mat-form-field>
 
+    <div class="note-buttons">
+      <div class="note-buttons--delete">
+        <button mat-mini-fab color="warn">
+          <i class="material-icons note-icon">delete</i>
+        </button>
+      </div>
+      <div class="note-buttons--group">
+        <button mat-mini-fab *ngIf="!note.isArchive">
+          <i class="material-icons note-icon">archive</i>
+        </button>
+        <button mat-mini-fab *ngIf="note.isArchive">
+          <i class="material-icons note-icon">unarchive</i>
+        </button>
+        <button mat-mini-fab color="primary" *ngIf="!note.isDone">
+          <i class="material-icons note-icon" alt="not done" aria-label="not done">check_box_outline_blank</i>
+        </button>
+        <button mat-mini-fab color="primary" *ngIf="note.isDone">
+          <i class="material-icons note-icon" alt="done" aria-label="done">check_box</i>
+        </button>
+      </div>
+    </div>
   </div>
 </div>

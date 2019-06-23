@@ -18,14 +18,14 @@ export class InMemoryDataService {
         isArchive: false
       },
       {id: 2,
-        title: "test",
+        title: "Uncopleted",
         text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut ad minus itaque voluptatem nisi iure, tempore beatae quia vel veritatis quam quibusdam asperiores error commodi tempora unde dolorum architecto perspiciatis.",
         isDone: false,
         isArchive: false,
       },
       {
         id: 3,
-        title: "another note",
+        title: "Copleted",
         text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut ad minus itaque voluptatem nisi iure, tempore beatae quia vel veritatis quam quibusdam asperiores error commodi tempora unde dolorum architecto perspiciatis.",
         isDone: true,
         isArchive: false,

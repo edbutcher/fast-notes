@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'archive',
     component: ArchiveComponent,
   },
+  {
+    path: 'newnote',
+    component: NoteComponent,
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 

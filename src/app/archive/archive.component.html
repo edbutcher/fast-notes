@@ -1,3 +1,8 @@
-<p>
-  Archived notes
-</p>
+<div class="content-wrapper">
+
+  <h2 class="notes-title">Archived:</h2>
+  <ul class="notes-wrapper">
+    <app-note-card *ngFor="let note of notes" [note]="note"></app-note-card>
+  </ul>
+
+</div>

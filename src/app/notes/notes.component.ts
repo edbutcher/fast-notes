@@ -10,7 +10,8 @@ import { NoteService } from '../note.service';
 })
 export class NotesComponent implements OnInit {
 
-  notes: Note[];
+  uncompletedNotes: Note[];
+  completedNotes: Note[];
 
   constructor(private noteService: NoteService) { }
 
@@ -19,8 +20,11 @@ export class NotesComponent implements OnInit {
   }
 
   getNotes(): void {
-    this.noteService.getNotes()
-    .subscribe(notes => this.notes = notes);
+    this.noteService.getUncompletedNotes()
+      .subscribe(notes => this.uncompletedNotes = notes);
+
+    this.noteService.getCompletedNotes()
+      .subscribe(notes => this.completedNotes = notes);
   }
 
 }

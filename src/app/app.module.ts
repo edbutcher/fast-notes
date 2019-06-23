@@ -17,7 +17,6 @@ import { NoteComponent } from './note/note.component';
 import { NotesComponent } from './notes/notes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NoteCardComponent } from './note-card/note-card.component';
-import { NotesFilterPipe } from './notes-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { NotesFilterPipe } from './notes-filter.pipe';
     NotesComponent,
     PageNotFoundComponent,
     NoteCardComponent,
-    NotesFilterPipe,
   ],
   imports: [
     BrowserModule,
