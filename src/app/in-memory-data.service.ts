@@ -13,7 +13,7 @@ export class InMemoryDataService {
       {
         id: 1,
         title: "json-server",
-        text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut ad minus itaque voluptatem nisi iure, tempore beatae quia vel veritatis quam quibusdam asperiores error commodi tempora unde dolorum architecto perspiciatis.",
+        text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
         isDone: false,
         isArchive: false
       },
@@ -25,7 +25,7 @@ export class InMemoryDataService {
       },
       {
         id: 3,
-        title: "Copleted",
+        title: "Copletedasdfasfdasdfasf asfasfasfsdfsdff",
         text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut ad minus itaque voluptatem nisi iure, tempore beatae quia vel veritatis quam quibusdam asperiores error commodi tempora unde dolorum architecto perspiciatis.",
         isDone: true,
         isArchive: false,

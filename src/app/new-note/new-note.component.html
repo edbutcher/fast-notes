@@ -1,0 +1,15 @@
+<div class="note-wrapper">
+  <div class="note-container">
+    <mat-form-field>
+      <textarea matInput placeholder="Title" [(ngModel)]="note.title"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Text" [(ngModel)]="note.text" rows="10"></textarea>
+    </mat-form-field>
+
+    <div class="note-buttons">
+      <button mat-raised-button color="accent" class="add" (click)="add()">add</button>
+    </div>
+  </div>
+</div>

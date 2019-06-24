@@ -5,6 +5,7 @@ import { NotesComponent } from './notes/notes.component';
 import { NoteComponent } from './note/note.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NewNoteComponent } from './new-note/new-note.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'newnote',
-    component: NoteComponent,
+    component: NewNoteComponent,
   },
   { path: '**', component: PageNotFoundComponent }
 ];

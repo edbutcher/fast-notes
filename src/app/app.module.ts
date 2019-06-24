@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
@@ -17,6 +18,8 @@ import { NoteComponent } from './note/note.component';
 import { NotesComponent } from './notes/notes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NoteCardComponent } from './note-card/note-card.component';
+import { NewNoteComponent } from './new-note/new-note.component';
+import { SearchNotesComponent } from './search-notes/search-notes.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +29,13 @@ import { NoteCardComponent } from './note-card/note-card.component';
     NotesComponent,
     PageNotFoundComponent,
     NoteCardComponent,
+    NewNoteComponent,
+    SearchNotesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }

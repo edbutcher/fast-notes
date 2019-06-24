@@ -15,12 +15,28 @@ export class NoteCardComponent implements OnInit {
 
   ngOnInit() { }
 
-  deleteNote() { }
+  deleteNote(note: Note): void {
+    this.noteService.deleteNote(note).subscribe();
+  }
 
-  archiveNote() { }
+  archiveNote(note: Note): void {
+    this.note.isArchive = true;
+    this.noteService.updateNote(note).subscribe();
+  }
 
-  doneNote() { }
+  unarchiveNote(note: Note): void {
+    this.note.isArchive = false;
+    this.noteService.updateNote(note).subscribe();
+  }
 
-  undoneNote() { }
+  doneNote(note: Note) {
+    this.note.isDone = true;
+    this.noteService.updateNote(note).subscribe();
+  }
+
+  undoneNote(note: Note) {
+    this.note.isDone = false;
+    this.noteService.updateNote(note).subscribe();
+  }
 
 }

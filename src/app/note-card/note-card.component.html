@@ -5,21 +5,21 @@
   </a>
   <div class="note-buttons">
     <div class="note-buttons--delete">
-      <button mat-mini-fab color="warn">
+      <button mat-mini-fab color="warn" (click)="deleteNote(note)">
         <i class="material-icons note-icon">delete</i>
       </button>
     </div>
     <div class="note-buttons--group">
-      <button mat-mini-fab *ngIf="!note.isArchive">
+      <button mat-mini-fab *ngIf="!note.isArchive" (click)="archiveNote(note)">
         <i class="material-icons note-icon">archive</i>
       </button>
-      <button mat-mini-fab *ngIf="note.isArchive">
+      <button mat-mini-fab *ngIf="note.isArchive" (click)="unarchiveNote(note)">
         <i class="material-icons note-icon">unarchive</i>
       </button>
-      <button mat-mini-fab color="primary" *ngIf="!note.isDone">
+      <button mat-mini-fab color="primary" *ngIf="!note.isDone" (click)="doneNote(note)">
         <i class="material-icons note-icon" alt="not done" aria-label="not done">check_box_outline_blank</i>
       </button>
-      <button mat-mini-fab color="primary" *ngIf="note.isDone">
+      <button mat-mini-fab color="primary" *ngIf="note.isDone" (click)="undoneNote(note)">
         <i class="material-icons note-icon" alt="done" aria-label="done">check_box</i>
       </button>
     </div>

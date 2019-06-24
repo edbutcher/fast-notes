@@ -1,14 +1,32 @@
 <div class="content-wrapper">
 
-  <h2 class="notes-title">Need to complete:</h2>
-  <ul class="notes-wrapper">
-    <app-note-card *ngFor="let note of uncompletedNotes" [note]="note"></app-note-card>
-  </ul>
+  <mat-form-field class="search">
+    <input
+      matInput
+      placeholder="search"
+      #searchInput
+      id="search-input"
+      (input)="getSearchNotes(searchInput.value)"
+    >
+  </mat-form-field>
 
-  <h2 class="notes-title">Completed:</h2>
-  <ul class="notes-wrapper">
-    <app-note-card *ngFor="let note of completedNotes" [note]="note"></app-note-card>
-  </ul>
+  <div>
+    <ul class="notes-wrapper">
+      <app-note-card *ngFor="let note of notes | async" [note]="note"></app-note-card>
+    </ul>
+  </div>
+
+  <div>
+    <h2 class="notes-title">Need to complete:</h2>
+    <ul class="notes-wrapper">
+      <app-note-card *ngFor="let note of uncompletedNotes" [note]="note"></app-note-card>
+    </ul>
+
+    <h2 class="notes-title">Completed:</h2>
+    <ul class="notes-wrapper">
+      <app-note-card *ngFor="let note of completedNotes" [note]="note"></app-note-card>
+    </ul>
+  </div>
 
 </div>
 
