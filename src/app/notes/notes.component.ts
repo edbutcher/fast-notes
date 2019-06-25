@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 
 import { Note } from '../note';
 import { NoteService } from '../note.service';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-notes',
@@ -12,8 +10,7 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 })
 export class NotesComponent implements OnInit {
 
-  private searchValue = new Subject<string>();
-  notes$: Observable<Note[]>;
+  
   uncompletedNotes: Note[];
   completedNotes: Note[];
 
@@ -21,11 +18,6 @@ export class NotesComponent implements OnInit {
 
   ngOnInit() {
     this.getNotes();
-    this.notes$ = this.searchValue.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap((term: string) => this.noteService.searchNotes(term)),
-    );
   }
 
   getNotes(): void {
@@ -35,9 +27,4 @@ export class NotesComponent implements OnInit {
     this.noteService.getCompletedNotes()
       .subscribe(notes => this.completedNotes = notes);
   }
-
-  getSearchNotes(term: string): void {
-    this.searchValue.next(term);
-  }
-
 }

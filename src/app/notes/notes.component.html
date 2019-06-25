@@ -1,20 +1,6 @@
 <div class="content-wrapper">
 
-  <mat-form-field class="search">
-    <input
-      matInput
-      placeholder="search"
-      #searchInput
-      id="search-input"
-      (input)="getSearchNotes(searchInput.value)"
-    >
-  </mat-form-field>
-
-  <div>
-    <ul class="notes-wrapper">
-      <app-note-card *ngFor="let note of notes | async" [note]="note"></app-note-card>
-    </ul>
-  </div>
+  <app-search-notes></app-search-notes>
 
   <div>
     <h2 class="notes-title">Need to complete:</h2>

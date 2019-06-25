@@ -1,3 +1,15 @@
-<p>
-  search-notes works!
-</p>
+<mat-form-field class="search">
+  <input
+    matInput
+    placeholder="search"
+    #searchInput
+    id="search-input"
+    (input)="getSearchNotes(searchInput.value)"
+  >
+</mat-form-field>
+
+<div *ngIf="notes$">
+  <ul class="notes-wrapper">
+    <app-note-card *ngFor="let note of notes$ | async" [note]="note"></app-note-card>
+  </ul>
+</div>
