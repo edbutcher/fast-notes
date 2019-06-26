@@ -1,16 +1,16 @@
 <div class="content-wrapper">
 
-  <app-search-notes></app-search-notes>
+  <app-search-notes (changeShowSearchResults)="changeShowSearchResults($event)"></app-search-notes>
 
-  <div>
+  <div *ngIf="!showSearchResults">
     <h2 class="notes-title">Need to complete:</h2>
     <ul class="notes-wrapper">
-      <app-note-card *ngFor="let note of uncompletedNotes" [note]="note"></app-note-card>
+      <app-note-card *ngFor="let note of uncompletedNotes$ | async" [note]="note"></app-note-card>
     </ul>
 
     <h2 class="notes-title">Completed:</h2>
     <ul class="notes-wrapper">
-      <app-note-card *ngFor="let note of completedNotes" [note]="note"></app-note-card>
+      <app-note-card *ngFor="let note of completedNotes$ | async" [note]="note"></app-note-card>
     </ul>
   </div>
 

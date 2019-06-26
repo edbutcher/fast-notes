@@ -8,8 +8,9 @@
   >
 </mat-form-field>
 
-<div *ngIf="notes$">
+<div *ngIf="searchShow">
+  <h2 class="notes-title">Search results:</h2>
   <ul class="notes-wrapper">
-    <app-note-card *ngFor="let note of notes$ | async" [note]="note"></app-note-card>
+    <app-note-card *ngFor="let note of notes" [note]="note"></app-note-card>
   </ul>
 </div>

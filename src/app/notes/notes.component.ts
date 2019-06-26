@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Note } from '../note';
 import { NoteService } from '../note.service';
@@ -10,9 +11,9 @@ import { NoteService } from '../note.service';
 })
 export class NotesComponent implements OnInit {
 
-  
-  uncompletedNotes: Note[];
-  completedNotes: Note[];
+  uncompletedNotes$: Observable<Note[]>;
+  completedNotes$: Observable<Note[]>;
+  showSearchResults: Boolean = false;
 
   constructor(private noteService: NoteService) { }
 
@@ -21,10 +22,11 @@ export class NotesComponent implements OnInit {
   }
 
   getNotes(): void {
-    this.noteService.getUncompletedNotes()
-      .subscribe(notes => this.uncompletedNotes = notes);
+    this.uncompletedNotes$ = this.noteService.getUncompletedNotes();
+    this.completedNotes$ = this.noteService.getCompletedNotes();
+  }
 
-    this.noteService.getCompletedNotes()
-      .subscribe(notes => this.completedNotes = notes);
+  changeShowSearchResults(showSearchResults: Boolean): void {
+    this.showSearchResults = showSearchResults;
   }
 }

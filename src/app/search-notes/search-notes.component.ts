@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
 
 import { Note } from '../note';
 import { NoteService } from '../note.service';
@@ -12,21 +12,29 @@ import { NoteService } from '../note.service';
 })
 export class SearchNotesComponent implements OnInit {
 
-  private searchValue = new Subject<string>();
-  notes$: Observable<Note[]>;
+  @Output() changeShowSearchResults = new EventEmitter<Boolean>();
+  private searchValue = new Subject<String>();
+  notes: Note[];
+  searchShow: Boolean = false;
 
   constructor(private noteService: NoteService) { }
 
   ngOnInit() {
-    this.notes$ = this.searchValue.pipe(
+    this.searchValue.pipe(
       debounceTime(300),
       distinctUntilChanged(),
       switchMap((term: string) => this.noteService.searchNotes(term)),
-    );
+      tap(notes => this.setSearchShow(notes)),
+    ).subscribe((notes: Note[]) => this.notes = notes)
   }
 
-  getSearchNotes(term: string): void {
+  getSearchNotes(term: String): void {
     this.searchValue.next(term);
+  }
+
+  setSearchShow(notes: Note[]): void {
+    this.searchShow = notes.length > 0;
+    this.changeShowSearchResults.emit(this.searchShow);
   }
 
 }
