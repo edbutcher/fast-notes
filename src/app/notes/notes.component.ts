@@ -13,7 +13,7 @@ export class NotesComponent implements OnInit {
 
   uncompletedNotes$: Observable<Note[]>;
   completedNotes$: Observable<Note[]>;
-  showSearchResults: Boolean = false;
+  showSearchResults = false;
 
   constructor(private noteService: NoteService) { }
 
@@ -26,7 +26,7 @@ export class NotesComponent implements OnInit {
     this.completedNotes$ = this.noteService.getCompletedNotes();
   }
 
-  changeShowSearchResults(showSearchResults: Boolean): void {
+  changeShowSearchResults(showSearchResults): void {
     this.showSearchResults = showSearchResults;
   }
 }

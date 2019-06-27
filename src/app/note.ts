@@ -4,4 +4,4 @@ export class Note {
   text: string;
   isDone: boolean;
   isArchive: boolean;
-};
+}

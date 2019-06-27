@@ -12,10 +12,10 @@ import { NoteService } from '../note.service';
 })
 export class SearchNotesComponent implements OnInit {
 
-  @Output() changeShowSearchResults = new EventEmitter<Boolean>();
-  private searchValue = new Subject<String>();
+  @Output() changeShowSearchResults = new EventEmitter<boolean>();
+  private searchValue = new Subject<string>();
   notes: Note[];
-  searchShow: Boolean = false;
+  searchShow = false;
 
   constructor(private noteService: NoteService) { }
 
@@ -25,10 +25,10 @@ export class SearchNotesComponent implements OnInit {
       distinctUntilChanged(),
       switchMap((term: string) => this.noteService.searchNotes(term)),
       tap(notes => this.setSearchShow(notes)),
-    ).subscribe((notes: Note[]) => this.notes = notes)
+    ).subscribe((notes: Note[]) => this.notes = notes);
   }
 
-  getSearchNotes(term: String): void {
+  getSearchNotes(term: string): void {
     this.searchValue.next(term);
   }
 

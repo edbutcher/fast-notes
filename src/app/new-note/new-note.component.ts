@@ -19,11 +19,11 @@ export class NewNoteComponent implements OnInit {
 
   ngOnInit() {
     this.note = {
-      title: "",
-      text: "",
+      title: '',
+      text: '',
       isDone: false,
       isArchive: false
-    }
+    };
   }
 
   goBack(): void {
