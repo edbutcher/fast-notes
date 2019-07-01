@@ -8,12 +8,10 @@ import { NoteService } from '../note.service';
   templateUrl: './note-card.component.html',
   styleUrls: ['./note-card.component.scss']
 })
-export class NoteCardComponent implements OnInit {
+export class NoteCardComponent {
   @Input() note: Note;
 
   constructor(private noteService: NoteService) { }
-
-  ngOnInit() { }
 
   deleteNote(note: Note): void {
     this.noteService.deleteNote(note).subscribe();

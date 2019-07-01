@@ -72,7 +72,7 @@ describe('NewNoteComponent', () => {
       isDone: false,
       isArchive: true,
     };
-    spyOn(noteService, 'addNote').and.returnValue(of(newNote as Note));;
+    spyOn(noteService, 'addNote').and.returnValue(of(newNote as Note));
     component.ngOnInit();
     component.note = newNote;
     component.add();
