@@ -7,7 +7,7 @@ import { ArchiveComponent } from './archive/archive.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NewNoteComponent } from './new-note/new-note.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'notes',
     component: NotesComponent,
