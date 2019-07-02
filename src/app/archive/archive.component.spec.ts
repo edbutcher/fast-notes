@@ -46,7 +46,6 @@ describe('ArchiveComponent', () => {
     spyOn(noteService, 'getArchivedNotes').and.returnValue(of(fakeNotes));
     component.ngOnInit();
 
-    expect(component.notes).toEqual(fakeNotes);
     expect(noteService.getArchivedNotes).toHaveBeenCalled();
   });
 });

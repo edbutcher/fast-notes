@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Location } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,8 +21,6 @@ describe('NewNoteComponent', () => {
   let component: NewNoteComponent;
   let fixture: ComponentFixture<NewNoteComponent>;
   let noteService: NoteService;
-  let location: Location;
-  let router: Router;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -48,9 +45,6 @@ describe('NewNoteComponent', () => {
     fixture = TestBed.createComponent(NewNoteComponent);
     component = fixture.componentInstance;
     noteService = TestBed.get(NoteService);
-    router = TestBed.get(Router);
-    location = TestBed.get(Location);
-    router.initialNavigation();
   }));
 
   it('set initial note in component', () => {

@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
+import { By } from '@angular/platform-browser';
+import { of } from 'rxjs';
 
 import { NoteCardComponent } from './note-card.component';
 import { NoteService } from '../note.service';
 import { Note } from '../note';
-import { of } from 'rxjs';
 
 describe('NoteCardComponent', () => {
   let component: NoteCardComponent;
@@ -83,7 +84,9 @@ describe('NoteCardComponent', () => {
     };
     component.note = mockNote;
     spyOn(noteService, 'updateNote').and.returnValue(of());
-    component.doneNote(mockNote);
+    fixture.detectChanges();
+    const button = fixture.debugElement.query(By.css('.button-done'));
+    button.nativeElement.click();
 
     expect(component.note.isDone).toBeTruthy();
     expect(noteService.updateNote).toHaveBeenCalledWith(mockNote);

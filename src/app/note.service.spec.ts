@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient } from '@angular/common/http';
 
 import { NoteService } from './note.service';
 import { Note } from './note';
+import { Type } from '@angular/core';
 
 describe('NoteService', () => {
   let httpTestingController: HttpTestingController;
@@ -15,7 +15,7 @@ describe('NoteService', () => {
       imports: [HttpClientTestingModule],
     });
 
-    httpTestingController = TestBed.get(HttpTestingController);
+    httpTestingController = TestBed.get(HttpTestingController as Type<HttpTestingController>);
     noteService = TestBed.get(NoteService);
   });
 

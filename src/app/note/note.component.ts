@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Note } from '../note';
 import { NoteService } from '../note.service';
 
@@ -15,7 +14,7 @@ export class NoteComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location,
+    private router: Router,
     private noteService: NoteService,
   ) { }
 
@@ -30,7 +29,7 @@ export class NoteComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/notes']);
   }
 
   save(): void {

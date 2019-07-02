@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Note } from '../note';
 import { NoteService } from '../note.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-archive',
@@ -10,13 +11,12 @@ import { NoteService } from '../note.service';
 })
 export class ArchiveComponent implements OnInit {
 
-  notes: Note[];
+  archiveddNotes$: Observable<Note[]>;
 
   constructor(private noteService: NoteService) { }
 
   ngOnInit() {
-    this.noteService.getArchivedNotes()
-    .subscribe(notes => this.notes = notes);
+    this.archiveddNotes$ = this.noteService.getArchivedNotes();
   }
 
 }

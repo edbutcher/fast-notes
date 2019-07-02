@@ -13,7 +13,6 @@ import { NoteCardComponent } from '../note-card/note-card.component';
 describe('SearchNotesComponent', () => {
   let component: SearchNotesComponent;
   let fixture: ComponentFixture<SearchNotesComponent>;
-  let noteService: NoteService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

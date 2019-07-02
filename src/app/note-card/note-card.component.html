@@ -16,9 +16,11 @@
       <button mat-mini-fab *ngIf="note.isArchive" (click)="unarchiveNote(note)">
         <i class="material-icons note-icon">unarchive</i>
       </button>
-      <button mat-mini-fab color="primary" *ngIf="!note.isDone" (click)="doneNote(note)">
+
+      <button mat-mini-fab color="primary" class="button-done" *ngIf="!note.isDone" (click)="doneNote(note)">
         <i class="material-icons note-icon" alt="not done" aria-label="not done">check_box_outline_blank</i>
       </button>
+
       <button mat-mini-fab color="primary" *ngIf="note.isDone" (click)="undoneNote(note)">
         <i class="material-icons note-icon" alt="done" aria-label="done">check_box</i>
       </button>

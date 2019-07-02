@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Location } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,14 +15,12 @@ describe('NoteComponent', () => {
   let component: NoteComponent;
   let fixture: ComponentFixture<NoteComponent>;
   let noteService: NoteService;
-  let location: Location;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ NoteComponent ],
       providers: [
         NoteService,
-        Location,
       ],
       imports: [
         FormsModule,
@@ -37,16 +34,15 @@ describe('NoteComponent', () => {
     fixture = TestBed.createComponent(NoteComponent);
     component = fixture.componentInstance;
     noteService = TestBed.get(NoteService);
-    location = TestBed.get(Location);
     fixture.detectChanges();
   }));
 
-  it('goBack', async(() => {
-    spyOn(location, 'back');
-    component.goBack();
+  // it('goBack', async(() => {
+  //   spyOn(router, 'navigate');
+  //   component.goBack();
 
-    expect(location.back).toHaveBeenCalled();
-  }));
+  //   expect(router.navigate).toHaveBeenCalledWith(['/notes']);
+  // }));
 
   it('delete note with deleteNote method', fakeAsync(() => {
     const mockNote: Note = {
