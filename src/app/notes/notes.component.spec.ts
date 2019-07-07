@@ -45,35 +45,35 @@ describe('NotesComponent', () => {
   });
 
   it('set array of completed notes to completedNotes$', () => {
-    const complitedNotes = [{
+    const completedNotes = [{
       id: 1,
       title: 'Completed',
       text: 'Lorem, ipsum',
       isDone: true,
       isArchive: true
     }];
-    spyOn(noteService, 'getCompletedNotes').and.returnValue(of(complitedNotes));
+    spyOn(noteService, 'getCompletedNotes').and.returnValue(of(completedNotes));
     component.ngOnInit();
 
     component.completedNotes$.subscribe(
-      notes => expect(notes).toEqual(complitedNotes)
+      notes => expect(notes).toEqual(completedNotes)
     );
     expect(noteService.getCompletedNotes).toHaveBeenCalled();
   });
 
   it('set array of uncompleted notes on init', () => {
-    const uncomplitedNotes = [{
+    const uncompletedNotes = [{
       id: 2,
       title: 'Uncompleted',
       text: 'Lorem, ipsum',
       isDone: false,
       isArchive: true,
     }];
-    spyOn(noteService, 'getUncompletedNotes').and.returnValue(of(uncomplitedNotes));
+    spyOn(noteService, 'getUncompletedNotes').and.returnValue(of(uncompletedNotes));
     component.ngOnInit();
 
     component.uncompletedNotes$.subscribe(
-      notes => expect(notes).toEqual(uncomplitedNotes)
+      notes => expect(notes).toEqual(uncompletedNotes)
     );
     expect(noteService.getUncompletedNotes).toHaveBeenCalled();
   });

@@ -8,7 +8,7 @@
       <app-note-card
         *ngFor="let note of uncompletedNotes$ | async"
         [note]="note"
-        (updateNotes)="getNotes($event)"
+        (updateNotes)="updateNotes($event)"
       ></app-note-card>
     </ul>
 
@@ -17,7 +17,7 @@
       <app-note-card
       *ngFor="let note of completedNotes$ | async"
       [note]="note"
-      (updateNotes)="getNotes($event)"
+      (updateNotes)="updateNotes($event)"
     ></app-note-card>
     </ul>
   </div>

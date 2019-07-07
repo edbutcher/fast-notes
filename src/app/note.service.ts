@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Note } from './note';
@@ -16,46 +16,50 @@ const httpOptions = {
 export class NoteService {
 
   private notesUrl = 'api/notes';
+  private notesSubject = new Subject<Note[]>();
 
   constructor(private http: HttpClient) { }
 
+  getNotes(): Observable<Note[]> {
+    this.http.get<Note[]>(this.notesUrl)
+      .subscribe(data => this.notesSubject.next(data));
+
+    return this.notesSubject;
+  }
+
   getCompletedNotes(): Observable<Note[]> {
-    return this.http.get<Note[]>(this.notesUrl)
-      .pipe(
-        map(
-          (notes: Note[]) => notes.filter(note => !note.isArchive && note.isDone )
-        ),
-        catchError(this.handleError<Note[]>('getNotes', []))
-      );
+    return this.getNotes().pipe(
+      map(
+        (notes: Note[]) => notes.filter(note => !note.isArchive && note.isDone )
+      ),
+      catchError(this.handleError<Note[]>('getNotes', []))
+    );
   }
 
   getUncompletedNotes(): Observable<Note[]> {
-    return this.http.get<Note[]>(this.notesUrl)
-      .pipe(
-        map(
-          (notes: Note[]) => notes.filter(note => !note.isArchive && !note.isDone )
-        ),
-        catchError(this.handleError<Note[]>('getNotes', []))
-      );
+    return this.getNotes().pipe(
+      map(
+        (notes: Note[]) => notes.filter(note => !note.isArchive && !note.isDone )
+      ),
+      catchError(this.handleError<Note[]>('getNotes', []))
+    );
   }
 
   getArchivedNotes(): Observable<Note[]> {
-    return this.http.get<Note[]>(this.notesUrl)
-      .pipe(
-        map(
-          (notes: Note[]) => notes.filter(note => note.isArchive)
-        ),
-        catchError(this.handleError<Note[]>('getNotes', []))
-      );
+    return this.getNotes().pipe(
+      map(
+        (notes: Note[]) => notes.filter(note => note.isArchive)
+      ),
+      catchError(this.handleError<Note[]>('getNotes', []))
+    );
   }
 
   getNoteNo404<Data>(id: number): Observable<Note> {
     const url = `${this.notesUrl}/?id=${id}`;
-    return this.http.get<Note[]>(url)
-      .pipe(
-        map(notes => notes[0]),
-        catchError(this.handleError<Note>(`getNote id=${id}`))
-      );
+    return this.http.get<Note[]>(url).pipe(
+      map(notes => notes[0]),
+      catchError(this.handleError<Note>(`getNote id=${id}`))
+    );
   }
 
   getNote(id: number): Observable<Note> {

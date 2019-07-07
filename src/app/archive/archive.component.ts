@@ -11,12 +11,16 @@ import { Observable } from 'rxjs';
 })
 export class ArchiveComponent implements OnInit {
 
-  archiveddNotes$: Observable<Note[]>;
+  archivedNotes$: Observable<Note[]>;
 
   constructor(private noteService: NoteService) { }
 
-  ngOnInit() {
-    this.archiveddNotes$ = this.noteService.getArchivedNotes();
+  ngOnInit(): void {
+    this.archivedNotes$ = this.noteService.getArchivedNotes();
+  }
+
+  updateNotes(): void {
+    this.noteService.getNotes();
   }
 
 }

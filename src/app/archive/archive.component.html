@@ -2,7 +2,11 @@
 
   <h2 class="notes-title">Archived:</h2>
   <ul class="notes-wrapper">
-    <app-note-card *ngFor="let note of archiveddNotes$ | async" [note]="note"></app-note-card>
+    <app-note-card
+      *ngFor="let note of archivedNotes$ | async"
+      [note]="note"
+      (updateNotes)="updateNotes($event)"
+    ></app-note-card>
   </ul>
 
 </div>

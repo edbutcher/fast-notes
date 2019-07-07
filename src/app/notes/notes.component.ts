@@ -17,13 +17,13 @@ export class NotesComponent implements OnInit {
 
   constructor(private noteService: NoteService) { }
 
-  ngOnInit() {
-    this.getNotes();
-  }
-
-  getNotes(): void {
+  ngOnInit(): void {
     this.uncompletedNotes$ = this.noteService.getUncompletedNotes();
     this.completedNotes$ = this.noteService.getCompletedNotes();
+  }
+
+  updateNotes(): void {
+    this.noteService.getNotes();
   }
 
   changeShowSearchResults(showSearchResults): void {
